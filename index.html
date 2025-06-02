@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EasyTech</title>
+  <title>Grow A Garden EasyTech</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     body {
@@ -53,19 +53,104 @@
     .button i {
       font-size: 1.3rem;
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(5px);
+      background: rgba(0, 0, 0, 0.7);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: #1f1f1f;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      border: 2px solid #00bfff;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .modal-content h2 {
+      color: #00bfff;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content p {
+      margin: 0.5rem 0;
+    }
+
+    .modal-content .button {
+      margin-top: 1.5rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    iframe {
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
-  <h1>EasyTech</h1>
+  <h1>EasyTech - Grow A Garden</h1>
 
   <a href="https://discord.gg/jzqTsV9nFJ" target="_blank" class="button">
     <i class="fab fa-discord"></i> Join Discord Server
   </a>
 
-  <a href="https://tech.sellauth.com" target="_blank" class="button">
-    <i class="fas fa-shopping-cart"></i> Visit Shop
-  </a>
+  <div class="button" onclick="openModal()">
+    <i class="fas fa-shopping-cart"></i> See Shop (Grow A Garden)
+  </div>
 
-<iframe src="https://discord.com/widget?id=1375484583604260996&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  <iframe src="https://discord.com/widget?id=1379110890443509950&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+
+  <!-- Modal -->
+  <div id="shopModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Grow A Garden Shop</h2>
+      <p>Raccoon: $5</p>
+      <p>Dragonfly: $5</p>
+      <p>Red Fox: $5</p>
+      <p style="margin-top: 1rem;">To see the rest of the list or purchase, join the Discord!</p>
+      <a href="https://discord.gg/jzqTsV9nFJ" target="_blank" class="button">
+        <i class="fab fa-discord"></i> Join Discord
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("shopModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("shopModal").style.display = "none";
+    }
+
+    // Optional: Close modal when clicking outside content
+    window.onclick = function(event) {
+      const modal = document.getElementById("shopModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  </script>
 </body>
 </html>
