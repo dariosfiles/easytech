@@ -1,1 +1,54 @@
-h
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Image on Mouse Move</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        img {
+            position: absolute;
+            width: 100px;  /* Initial image size */
+            height: auto;
+            transition: all 0.3s ease;
+            pointer-events: none;  /* Make the image not interfere with mouse movements */
+        }
+    </style>
+</head>
+<body>
+    <img src="https://static.wixstatic.com/media/bcc93e_90cfaae0b5684d98b09911eaa61d939f~mv2.png/v1/fill/w_298,h_378,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/miperro.png" alt="Image" id="fullscreenImage">
+
+    <script>
+        const image = document.getElementById('fullscreenImage');
+
+        document.addEventListener('mousemove', (event) => {
+            // Get mouse position
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            // Move image to mouse position
+            image.style.left = `${mouseX - image.width / 2}px`;
+            image.style.top = `${mouseY - image.height / 2}px`;
+
+            // Make the image fullscreen
+            image.style.width = '100vw';
+            image.style.height = '100vh';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            // Reset the image size when the mouse leaves the window
+            image.style.width = '100px';
+            image.style.height = 'auto';
+        });
+    </script>
+</body>
+</html>
